@@ -25,23 +25,19 @@ def pear():
     verifyP=""        
     erroremail=""
 
-    In_User=""
     
-    
-    In_Email=""
-
     
     
 
 
     if  re.search(" ", input_username):
         erroruser= "No Spaces!"
-        In_User=input_username
+        
     
     elif len(input_username) > 20 or len(input_username) <3:
     
         erroruser="3-20 characters !"
-        In_User=input_username
+        
     
     
 
@@ -78,16 +74,19 @@ def pear():
 
         elif re.search(" ", input_email):
             erroremail= "no spaces !"
-            In_Email=input_email
+            
         elif len(input_email) > 20 or len(input_email) <3:
             erroremail= "3- 20"
-            In_Email=input_email
             
-        return render_template("index.html",user_error=erroruser,pass_error=error_password,verify_error_=verifyP,email_error=erroremail)
+            
+        
     
     if erroruser =="" and error_password=="" and verifyP=="" and erroremail=="":
         return render_template("welcome.html", USER=input_username)
-    input_username
+    
+    else :
+         return render_template("index.html",user_error=erroruser,pass_error=error_password,verify_error_=verifyP,email_error=erroremail,In_User=input_username,In_Email=input_email )
+    
   
 
     
